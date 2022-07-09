@@ -22,6 +22,11 @@ const router = createRouter({
       name: "model",
       component: () => import("../views/ModelResultView/index.vue"),
     },
+    {
+      name: "carbon-decoupling",
+      path: "/carbon-decoupling",
+      component: () => import("../views/CarbonDecouplingView/index.vue"),
+    },
   ],
 });
 
