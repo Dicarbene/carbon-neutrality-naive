@@ -41,10 +41,12 @@ const msg = {
     208808.78999999995, 209349.22999999995, 209773.21999999994,
   ],
 };
-
-const data = [];
 const len = msg.MAC.length;
+const data = {MAC:[], cyr_total:[]};
 for (let i = 0; i < len; i++) {
-  data.push([msg.MAC[i], msg.cyr_total[i]]);
+  data['MAC'].push(msg.MAC[i]);
+  data['cyr_total'].push(msg.cyr_total[i]);
+  data['MAC'].push(0);
+  data['cyr_total'].push(msg.cyr_total[i]);
 }
 console.log(data);
