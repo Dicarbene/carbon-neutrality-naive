@@ -8,10 +8,6 @@
       >
     </template>
     <template #avatar>
-      <n-avatar
-        class="ml-8"
-        src="https://cdnimg103.lizhi.fm/user/2017/02/04/2583325032200238082_160x160.jpg"
-      />
     </template>
     <template #extra>
       <n-space class="mr-2">
