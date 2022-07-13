@@ -7,8 +7,7 @@
         ></n-button
       >
     </template>
-    <template #avatar>
-    </template>
+    <template #avatar> </template>
     <template #extra>
       <n-space class="mr-2">
         <n-button secondary>数据接口</n-button>
@@ -24,9 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { useRouter, useRoute } from "vue-router";
+import { useRouter } from "vue-router";
 const router = useRouter();
-const route = useRoute();
 
 const toHome = () => {
   router.push("/");

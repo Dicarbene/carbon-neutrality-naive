@@ -17,7 +17,7 @@
       </n-p>
     </n-upload-dragger>
   </n-upload>
-  <CarbonDataChart v-if="loadChart" :data="chartData.msg" />
+  <CarbonDataChart v-if="loadChart" :data="chartData" />
 </template>
 
 <script lang="ts" setup>
@@ -27,7 +27,7 @@ import { ArchiveOutline as ArchiveIcon } from "@vicons/ionicons5";
 import { ref } from "vue";
 import CarbonDataChart from "./CarbonDataChart.vue";
 
-let chartData = { msg: {} };
+const chartData = ref({ MAC: [], cyr_total: [] });
 const loadChart = ref(false);
 
 const message = useMessage();
@@ -51,7 +51,7 @@ const customRequest = ({ file, data }: UploadCustomRequestOptions) => {
     .then((response) => response.json())
     .then((result) => {
       message.success("计算成功");
-      chartData = result;
+      chartData.value = Object.assign({}, result.msg);
       loadChart.value = true;
     })
     .catch((error) => message.error(error.message));

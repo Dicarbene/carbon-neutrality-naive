@@ -3,30 +3,17 @@
 </template>
 
 <script setup lang="ts">
-import { use } from "echarts/core";
-import { CanvasRenderer } from "echarts/renderers";
-import { PieChart } from "echarts/charts";
-import {
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-} from "echarts/components";
-import VChart, { THEME_KEY } from "vue-echarts";
-import { ref, defineComponent } from "vue";
+import { ref } from "vue";
 import { defineProps } from "vue";
-const data = defineProps({
+
+const props = defineProps({
   data: {
     type: Object,
-    default: () => ({}),
+    default: () => {
+      return { MAC: ["0"], cyr_total: ["0"] };
+    },
   },
 });
-use([
-  CanvasRenderer,
-  PieChart,
-  TitleComponent,
-  TooltipComponent,
-  LegendComponent,
-]);
 const option = ref({
   toolbox: {
     feature: {
@@ -53,8 +40,8 @@ const option = ref({
     },
   ],
   xAxis: {
-    type: "category",
-    data: data.MAC,
+    type: "value",
+    data: props.data.MAC,
     interval: 0,
   },
   yAxis: {
@@ -64,21 +51,9 @@ const option = ref({
     {
       type: "line",
       step: "end",
-      data: data.cyr_total,
+      data: props.data.cyr_total,
     },
   ],
-});
-</script>
-
-<script lang="ts">
-export default defineComponent({
-  name: "HelloWorld",
-  components: {
-    VChart,
-  },
-  provide: {
-    [THEME_KEY]: "dark",
-  },
 });
 </script>
 
