@@ -27,6 +27,16 @@ const router = createRouter({
       path: "/carbon-decoupling",
       component: () => import("../views/CarbonDecouplingView/index.vue"),
     },
+    {
+      name: "api-docs",
+      path: "/docs",
+      component: () => import("../views/ApiDocsView/index.vue"),
+    },
+    {
+      name: "login-register",
+      path: "/loginregister",
+      component: () => import("../views/LoginRegisterView/index.vue"),
+    },
   ],
 });
 

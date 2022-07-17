@@ -7,7 +7,11 @@ import BaseHeader from "@/components/BaseHeader.vue";
 <template>
   <BaseHeader />
   <n-back-top :right="100" />
-  <RouterView />
+  <router-view v-slot="{ Component }">
+    <transition name="fade">
+      <component :is="Component" />
+    </transition>
+  </router-view>
 </template>
 
 <style></style>
