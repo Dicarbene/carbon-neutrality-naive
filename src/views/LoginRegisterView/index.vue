@@ -3,5 +3,7 @@ import LoginRegisterCard from "./LoginRegisterCard.vue";
 </script>
 
 <template>
-  <LoginRegisterCard />
+  <n-message-provider>
+    <LoginRegisterCard />
+  </n-message-provider>
 </template>

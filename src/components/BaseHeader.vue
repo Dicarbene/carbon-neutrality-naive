@@ -1,5 +1,5 @@
 <template>
-  <n-page-header class="mt-2 pb-2 border-b-cool-gray-200 border-b-1">
+  <n-page-header class="p-4 border-b-cool-gray-200 border-b-1">
     <template #title>
       <n-button
         text
@@ -15,8 +15,7 @@
         <n-button secondary>模型结果</n-button>
         <n-button secondary @click="toCarbon">碳脱钩计算</n-button>
         <n-space class="ml-8">
-          <n-button @click="toLoginRegister" primary>登录</n-button>
-          <n-button @click="toLoginRegister" primary>注册</n-button>
+          <user-status />
         </n-space>
       </n-space>
     </template>
@@ -24,6 +23,7 @@
 </template>
 
 <script lang="ts" setup>
+import userStatus from "@/components/userStatus.vue";
 import { useRouter } from "vue-router";
 const router = useRouter();
 
@@ -39,13 +39,6 @@ const toCarbon = () => {
   router.push({
     name: "carbon-decoupling",
     path: "/carbon-decoupling",
-  });
-};
-
-const toLoginRegister = () => {
-  router.push({
-    name: "login-register",
-    path: "/loginregister",
   });
 };
 </script>
