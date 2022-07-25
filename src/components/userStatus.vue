@@ -3,7 +3,14 @@
     登录 /&ThickSpace;
     <n-gradient-text type="success"> 注册 </n-gradient-text>
   </n-button>
-  <n-avatar v-if="!userData.isLogin" @click="toUserCenter"> user </n-avatar>
+  <n-avatar
+    v-else
+    @click="toUserCenter"
+    class="hover:cursor-pointer"
+    size="medium"
+  >
+    user
+  </n-avatar>
 </template>
 <script setup lang="ts">
 import { storeToRefs } from "pinia";

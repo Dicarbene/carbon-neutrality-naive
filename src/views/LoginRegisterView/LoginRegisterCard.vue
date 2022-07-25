@@ -34,7 +34,14 @@
               </n-input>
             </n-form-item-row>
           </n-form>
-          <n-button @click="login" type="primary" block secondary strong>
+          <n-button
+            @click="login"
+            @keyup.enter="login"
+            type="primary"
+            block
+            secondary
+            strong
+          >
             登录
           </n-button>
         </n-tab-pane>
@@ -107,8 +114,9 @@ const login = () => {
   const requestOptions = {
     method: "POST",
     body: formData,
+    mode: "no-cors",
   };
-  fetch("http://47.103.132.247:8802/user_login", requestOptions)
+  fetch("http://47.103.132.247:9014/user_login", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
@@ -134,7 +142,7 @@ const register = () => {
     method: "POST",
     body: formData,
   };
-  fetch("http://47.103.132.247:8802/user_register", requestOptions)
+  fetch("http://47.103.132.247:9014/user_register", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       console.log(result);
