@@ -12,7 +12,11 @@
           <UserProfile />
         </n-tab-pane>
         <n-tab-pane name="settings" tab="资料设置"> 资料设置 </n-tab-pane>
-        <n-tab-pane name="token" tab="接口Token"> 接口Token </n-tab-pane>
+        <n-tab-pane name="token" tab="接口Token">
+          <n-message-provider>
+            <TokenPageView />
+          </n-message-provider>
+        </n-tab-pane>
         <n-tab-pane name="security" tab="安全设置"> 安全设置 </n-tab-pane>
       </n-tabs>
     </n-card>
@@ -20,4 +24,5 @@
 </template>
 <script setup lang="ts">
 import UserProfile from "./UserProfile.vue";
+import TokenPageView from "./TokenPageView.vue";
 </script>

@@ -3,35 +3,32 @@
     <template #avatar>
       <n-avatar>
         <n-icon>
-          <cash-icon />
+          <person-icon />
         </n-icon>
       </n-avatar>
     </template>
-    <template #header> 用户 </template>
-    <template #description> 简介 </template>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
-    sapiente cum libero nostrum perspiciatis deleniti consectetur obcaecati
-    velit, a, veritatis, odio perferendis neque mollitia dolor aperiam dolorem
-    nulla! Quia, quam?
+    <template #header> {{ userData.user.value.username }} </template>
     <template #action>
-      <n-space>
-        <n-button size="small"> ID </n-button>
-        <n-button size="small"> 邮箱 </n-button>
-        <n-button size="small"> 手机 </n-button>
-        <n-button size="small">
-          <template #icon>
-            <n-icon>
-              <cash-icon />
-            </n-icon>
-          </template>
-          积分
-        </n-button>
-      </n-space>
+      <n-descriptions label-placement="left" title="">
+        <n-descriptions-item label="用户ID">
+          {{ userData.user.value.uid }}
+        </n-descriptions-item>
+        <n-descriptions-item label="公司">
+          {{ userData.user.value.company }}
+        </n-descriptions-item>
+        <n-descriptions-item label="部门">
+          {{ userData.user.value.dept }}
+        </n-descriptions-item>
+        <n-descriptions-item label="夜宵"> </n-descriptions-item>
+      </n-descriptions>
     </template>
   </n-thing>
 </template>
 
 <script lang="ts" setup>
-import { ref } from "vue";
-import { CashOutline as CashIcon } from "@vicons/ionicons5";
+import { storeToRefs } from "pinia";
+import { useUserStore } from "@/stores/useUserStore.js";
+import { PersonOutline as PersonIcon } from "@vicons/ionicons5";
+const userStore = useUserStore();
+const userData = storeToRefs(userStore);
 </script>

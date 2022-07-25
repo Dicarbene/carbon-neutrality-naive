@@ -47,7 +47,7 @@ const customRequest = ({ file, data }: UploadCustomRequestOptions) => {
     body: formData,
   };
 
-  fetch("http://47.103.132.247:8802/get_oCoCarbon", requestOptions)
+  fetch("http://47.103.132.247:9014/get_oCoCarbon", requestOptions)
     .then((response) => response.json())
     .then((result) => {
       message.success("计算成功");
