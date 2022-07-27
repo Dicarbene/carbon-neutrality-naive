@@ -114,7 +114,6 @@ const login = () => {
   const requestOptions = {
     method: "POST",
     body: formData,
-    mode: "no-cors",
   };
   fetch("http://47.103.132.247:9014/user_login", requestOptions)
     .then((response) => response.json())
