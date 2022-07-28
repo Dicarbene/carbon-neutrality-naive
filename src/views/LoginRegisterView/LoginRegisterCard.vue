@@ -85,6 +85,7 @@ import type { Ref } from "vue";
 import { useMessage } from "naive-ui";
 import { GlassesOutline, Glasses } from "@vicons/ionicons5";
 import { useUserStore } from "@/stores/useUserStore.js";
+import { useRouter } from "vue-router";
 interface LoginType {
   username: string | null;
   password: string | null;
@@ -96,6 +97,7 @@ interface RegisterType {
   //inviteCode: string | null;
 }
 
+const router = useRouter();
 const userStore = useUserStore();
 const message = useMessage();
 const loginProps: Ref<LoginType> = ref({
@@ -120,14 +122,15 @@ const login = () => {
     .then((result) => {
       console.log(result);
       if (result.code === 0) {
-        if (result.mas === "LOGIN_SUCCESS") {
+        if (result.mas === "LOGIN_SUCCESSED") {
           userStore.$patch((state) => {
-            state.user = result.data;
+            state.user = result.msg;
             state.isLogin = true;
           });
-          message.success("登陆成功，点击右上角进入用户中心");
+          message.success("登陆成功");
+          router.push("usercenter");
         }
-      } else if (result.code === 1) {
+      } else if (result.code !== 1) {
         message.error("服务器错误");
       }
     })

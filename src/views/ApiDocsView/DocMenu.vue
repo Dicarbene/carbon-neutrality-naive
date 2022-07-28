@@ -27,7 +27,8 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, h, ref, Component } from "vue";
+import { defineComponent, h, ref } from "vue";
+import type { Component } from "vue";
 import { NIcon } from "naive-ui";
 import type { MenuOption } from "naive-ui";
 import {
