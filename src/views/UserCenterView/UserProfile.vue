@@ -19,7 +19,9 @@
         <n-descriptions-item label="部门">
           {{ userData.user.value.dept }}
         </n-descriptions-item>
-        <n-descriptions-item label="夜宵"> </n-descriptions-item>
+        <n-descriptions-item label="描述">
+          {{ userData.user.value.DESCRIPTION }}
+        </n-descriptions-item>
       </n-descriptions>
     </template>
   </n-thing>
